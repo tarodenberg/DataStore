@@ -3,8 +3,9 @@
  * DataStore v0.3 for jQuery
  * Stores data for fast retrieval
  *
- * Copyright (c) 2008 Tom Rodenberg <tarodenberg gmail com>
- * Licensed under the GPL (GPL-LICENSE.txt) license.
+ * Copyright (c) 2012 Tom Rodenberg <tarodenberg gmail com>
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
  */
  
 /**
@@ -39,8 +40,8 @@ $.dataStore = function() {
 }
 
   /**
- * DataStore - Stores your data
- */
+   * DataStore - Stores your data
+   */
   function DataStore() {
     this.columns = [];
     this.all = [];
@@ -50,9 +51,9 @@ $.dataStore = function() {
   }
 
   /**
- * Inserts an object into the data store
- * after checking if it previously exists
- */
+   * Inserts an object into the data store
+   * after checking if it previously exists
+   */
   DataStore.prototype.insertUnique = function(data) {
     // do find to determine if data entry exists
     var find = this.find(data);
@@ -63,9 +64,9 @@ $.dataStore = function() {
   }
 
   /**
- * Updates the first matching record,
- * otherwise inserts new record
- */
+   * Updates the first matching record,
+   * otherwise inserts new record
+   */
   DataStore.prototype.update = function(data) {
     var first = this.first(data);
     if(first) {
@@ -94,8 +95,8 @@ $.dataStore = function() {
   }
 
   /**
- * Inserts data into the data store
- */
+   * Inserts data into the data store
+   */
   DataStore.prototype.insert = function(data) {
     // Add data to indexed data object
     for(var i in data) {
@@ -130,8 +131,8 @@ $.dataStore = function() {
   }
 
   /**
- * Returns the column or a new column if non-existant
- */
+   * Returns the column or a new column if non-existant
+   */
   DataStore.prototype.createColumn = function(name) {
     var column = this.getColumn(name);
     if(!column) {
@@ -219,11 +220,11 @@ $.dataStore = function() {
   }
 
   /**
- * Gets the intersection of n-number of arrays.
- * Returns array of items present in all arrays
- * arr getIntersect(arr[])
- * arr getIntersect(arr1, arr2, ...)
- */
+   * Gets the intersection of n-number of arrays.
+   * Returns array of items present in all arrays
+   * arr getIntersect(arr[])
+   * arr getIntersect(arr1, arr2, ...)
+   */
   var getIntersect = function() {
     var arg_n = arguments.length;
     if(arg_n == 0) {
@@ -254,13 +255,13 @@ $.dataStore = function() {
   }
 
   /**
- * Constant array of storable types
- */
+   * Constant array of storable types
+   */
   var STORABLE_TYPES = ['string','number','boolean','date'];
 
   /**
- * Determine if an object type is storable in this data store
- */
+   * Determine if an object type is storable in this data store
+   */
   var isObjectStorable = function(obj) {
     if(obj == null) {
       return true;
@@ -269,8 +270,8 @@ $.dataStore = function() {
   }
 
   /**
- * Converts an object to its string representation
- */
+   * Converts an object to its string representation
+   */
   var objectToString = function(obj) {
     if(obj == null) 
     {
@@ -287,8 +288,8 @@ $.dataStore = function() {
   }
 
   /**
- * Sorts DataStoreColumns in descending length order
- */
+   * Sorts DataStoreColumns in descending length order
+   */
   var columnSort = function(a,b) {
     return b.length - a.length;
   }
